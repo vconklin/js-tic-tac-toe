@@ -10,7 +10,8 @@ TicTacToe.prototype = {
   take_space: function (space) {
     //the space has to be untaken in order to claim it
     if (this.untaken.includes(space)) {
-      var taken_space = this.untaken.splice(space)
+      var index = this.untaken.indexOf(space)
+      var taken_space = this.untaken.splice(index, 1)
       // add this space to the list of spots already taken by the current player
       if (this._turn === 'x') {
         this.taken_by_x.push(taken_space)
@@ -21,7 +22,7 @@ TicTacToe.prototype = {
       alert("That space is already taken!")
       //alert is annoying, do something else later
     }
-  }
+  },
 
 
   is_win: function () {
@@ -33,5 +34,3 @@ TicTacToe.prototype = {
   }
 
 }
-
-// module.exports = TicTacToe;

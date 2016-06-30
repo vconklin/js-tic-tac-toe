@@ -35,12 +35,15 @@
   <script src="tic-tac-toe.js"></script>
   <script type="text/javascript">
     $(document).on('ready', function() {
-      // console.log('create and begin the game here!');
-      var game = new TicTacToe;
+      //creates and begins game
+      var game = new TicTacToe();
+      spaces = $('td')
+      //when you click on a space, its position will be passed to JS script
+      spaces.on('click', function () {
+        var space = $(this).attr('data-position')
 
-      _____.on('click', function () {
-          game.take_space()
-          game.is_win()
+        game.take_space(space)
+        game.is_win()
       })
 
     })
