@@ -51,6 +51,13 @@
           }
         })
 
+        game.is_draw(function(draw_status) {
+          if (draw_status === true) {
+            var message = "DRAWWWWWW"
+            console.log(message)
+          }
+        })
+
         game.next_turn()
       })
 

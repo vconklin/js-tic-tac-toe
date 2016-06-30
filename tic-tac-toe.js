@@ -42,10 +42,19 @@ TicTacToe.prototype = {
 
     //win conditions:
     // if (this.threeSameNumbers() || this.threeSameLetters() || this.threeSequentialNumbers()) {
-    if (this.threeSameNumbers()) {
+    if (this.threeSameNumbers() || this.threeSameLetters()) {
       callback(true, this._turn)
     } else {
       callback(false, this._turn)
+    }
+  },
+
+  is_draw: function(callback) {
+    // if there are no more untaken spaces on the board, it's a draw
+    if (this.untaken.length === 0) {
+      callback(true)
+    } else {
+      callback(false)
     }
   },
 
@@ -55,7 +64,6 @@ TicTacToe.prototype = {
     var taken_by_player
     if (this._turn === 'x') {
       taken_by_player = this.taken_by_x
-      console.log(taken_by_player)
     } else if (this._turn === 'o') {
       taken_by_player = this.taken_by_o
     }
@@ -76,6 +84,39 @@ TicTacToe.prototype = {
       }
       //if the player has claimed 3 spaces with the same row number, they win!
       if (ones === 3 || twos === 3 || threes === 3) {
+        return true
+      }
+    }
+  },
+
+  // win condition: a1, a2, a3...etc.
+  threeSameLetters: function () {
+    // sets up which player's spaces we're talking about
+    var taken_by_player
+    if (this._turn === 'x') {
+      taken_by_player = this.taken_by_x
+      console.log(taken_by_player)
+    } else if (this._turn === 'o') {
+      taken_by_player = this.taken_by_o
+    }
+
+    //counts how many times each row number appears
+    var a = 0,
+        b = 0,
+        c = 0
+    for (var space of taken_by_player) {
+      var column_letter = space[0]
+      // e.g., the number '2' in 'a2'
+      if (column_letter === 'a') {
+        a++
+      } else if (column_letter === 'b') {
+        b++
+      } else if (column_letter === 'c') {
+        c++ //har har
+      }
+
+      //if the player has claimed 3 spaces with the same row number, they win!
+      if (a === 3 || b === 3 || c === 3) {
         return true
       }
     }
