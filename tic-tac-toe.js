@@ -7,6 +7,13 @@ function TicTacToe() {
 }
 
 TicTacToe.prototype = {
+
+  // switches turns
+  next_turn: function () {
+    this._turn === 'x' ? this._turn = 'o' : this._turn = 'x'
+  },
+
+  //current player claims the given space
   take_space: function (space) {
     //the space has to be untaken in order to claim it
     if (this.untaken.includes(space)) {
@@ -15,8 +22,10 @@ TicTacToe.prototype = {
       // add this space to the list of spots already taken by the current player
       if (this._turn === 'x') {
         this.taken_by_x.push(taken_space)
+        console.log("taken by x: " + this.taken_by_x)
       } else if (this._turn === 'o') {
         this.taken_by_o.push(taken_space)
+        console.log("taken by o: " + this.taken_by_o)
       }
     } else {
       alert("That space is already taken!")
@@ -24,13 +33,14 @@ TicTacToe.prototype = {
     }
   },
 
-
+  //determines if current player has won or not
   is_win: function () {
     //matches any of the following win condition examples
       // a1, a2, a3 (all 3 letters are the same)
       // a1, b1, c1 (all 3 numbers are the same)
       // a1, b2, b3 (numbers are 1, 2, 3)
 
+    
   }
 
 }
