@@ -36,10 +36,13 @@
   <script type="text/javascript">
     $(document).on('ready', function() {
       // console.log('create and begin the game here!');
+      var game = new TicTacToe;
 
-      var newGame = new TicTacToe;
-      //newGame
-      //gameStart
+      _____.on('click', function () {
+          game.take_space()
+          game.is_win()
+      })
+
     })
   </script>
 </html>
