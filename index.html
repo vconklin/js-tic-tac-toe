@@ -37,13 +37,20 @@
     $(document).on('ready', function() {
       //creates and begins game
       var game = new TicTacToe();
-      spaces = $('td')
+      var spaces = $('td')
       //when you click on a space, its position will be passed to JS script
       spaces.on('click', function () {
         var space = $(this).attr('data-position')
 
         game.take_space(space)
-        game.is_win()
+
+        game.is_win(function(win_status, winning_player) {
+          if (win_status === true) {
+            var message = winning_player.toUpperCase() + " WINS!!!"
+            console.log(message)
+          }
+        })
+
         game.next_turn()
       })
 
