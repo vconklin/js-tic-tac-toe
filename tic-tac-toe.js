@@ -40,9 +40,17 @@ TicTacToe.prototype = {
       // a1, b1, c1 (all 3 numbers are the same)
       // a1, b2, b3 (numbers are 1, 2, 3)
 
+    //sets up which player's spaces we're talking about
+    var taken_by_player
+    if (this._turn === 'x') {
+      taken_by_player = this.taken_by_x
+    } else if (this._turn === 'o') {
+      taken_by_player = this.taken_by_o
+    }
+
     //win conditions:
-    // if (this.threeSameNumbers() || this.threeSameLetters() || this.threeSequentialNumbers()) {
-    if (this.threeSameNumbers() || this.threeSameLetters()) {
+    if (this.isCompleteRow(taken_by_player) || this.isCompleteColumn(taken_by_player) || this.isCompleteDiagonal(taken_by_player)) {
+    // if (this.isCompleteRow() || this.isCompleteColumn()) {
       callback(true, this._turn)
     } else {
       callback(false, this._turn)
@@ -59,14 +67,7 @@ TicTacToe.prototype = {
   },
 
   // win condition: a1, b1, c1...etc.
-  threeSameNumbers: function () {
-    // sets up which player's spaces we're talking about
-    var taken_by_player
-    if (this._turn === 'x') {
-      taken_by_player = this.taken_by_x
-    } else if (this._turn === 'o') {
-      taken_by_player = this.taken_by_o
-    }
+  isCompleteRow: function (taken_by_player) {
 
     //counts how many times each row number appears
     var ones = 0,
@@ -90,15 +91,7 @@ TicTacToe.prototype = {
   },
 
   // win condition: a1, a2, a3...etc.
-  threeSameLetters: function () {
-    // sets up which player's spaces we're talking about
-    var taken_by_player
-    if (this._turn === 'x') {
-      taken_by_player = this.taken_by_x
-      console.log(taken_by_player)
-    } else if (this._turn === 'o') {
-      taken_by_player = this.taken_by_o
-    }
+  isCompleteColumn: function (taken_by_player) {
 
     //counts how many times each row number appears
     var a = 0,
@@ -120,6 +113,11 @@ TicTacToe.prototype = {
         return true
       }
     }
+  },
+
+  //win condition: a1, b2, c3...etc.
+  isCompleteDiagonal: function() {
+    return false
   }
 
 }
