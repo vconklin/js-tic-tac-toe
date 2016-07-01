@@ -1,11 +1,7 @@
 html {
   font-size: 16px;
-  font-family: sans-serif;
+  font-family: 'Nunito', 'Helvetica', sans-serif;
   background-color: #6fc1f1;
-}
-
-h1 {
-  color: white;
 }
 
 table {
@@ -18,11 +14,21 @@ td {
   height: 20vh;
   width: 20vh;
   margin: 5rem;
-  font-size: 5rem;
+  font-size: 6rem;
   text-align: center;
   color: white;
   background-color: #6fc1f1;
   font-weight: bold;
+}
+
+.win {
+  animation: 0.75s ease 0s infinite flash;
+}
+
+@keyframes flash {
+  0% { color: yellow; }
+  50% { color: white; }
+  100% { color: pink; }
 }
 
 /** to make that tic-tac-toe grid look **/

@@ -4,6 +4,7 @@
     <title>Tic Tac Toe!</title>
     <meta charset="utf-8">
     <link href="index.css" media="screen" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
   </head>
 
   <body>
@@ -36,6 +37,10 @@
       //creates and begins game
       var game = new TicTacToe();
       var spaces = $('td')
+      //for flashing the symbols of the winner at the end
+      // function flash(symbols) {
+      //   symbols.toggleClass('win')
+      // }
 
       //when you click on a space, its position will be passed to JS script
       spaces.on('click', function () {
@@ -52,10 +57,17 @@
           }
         })
 
-        game.is_win(function(win_status, winning_player) {
+        game.is_win(function(win_status, winning_player, winning_spaces) {
           if (win_status === true) {
-            var message = winning_player.toUpperCase() + " WINS!!!"
-            console.log(message)
+            //probably should just make all instances of the string 'x' uppercase to begin with. do this if there's time.
+            var message = winning_player.toUpperCase() + " WINS!"
+
+            //winning player's symbols flash triumphantly
+            var winner_symbols = $('td:contains(' + winning_player.toUpperCase() + ')')
+            winner_symbols.toggleClass('win')
+            alert(message)
+            winner_symbols.toggleClass('win')
+
             //reset all spaces back to visually blank
             spaces.text("")
 
@@ -66,8 +78,8 @@
 
         game.is_draw(function(draw_status) {
           if (draw_status === true) {
-            var message = "CAT'S GAME!!!"
-            console.log(message)
+            var message = "CAT'S GAME"
+            alert(message)
             //reset all spaces back to visually blank
             spaces.text("")
           }
