@@ -46,7 +46,11 @@
         // so I can access this context inside the callback below
         var which_square = $(this)
         game.take_space(space, function(current_player) {
-          which_square.text(current_player.toUpperCase())
+          // changes the symbol on the square, but only if the space wasn't already selected by someone else
+          if (current_player !== undefined) {
+            console.log(current_player)
+            which_square.text(current_player.toUpperCase())
+          }
         })
 
         game.is_win(function(win_status, winning_player) {
