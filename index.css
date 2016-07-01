@@ -21,6 +21,11 @@ td {
   font-weight: bold;
 }
 
+td:hover {
+  background-color: purple;
+  opacity: 0.25;
+}
+
 .win {
   animation: 0.75s ease 0s infinite flash;
 }
