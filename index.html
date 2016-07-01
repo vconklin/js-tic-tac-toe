@@ -80,10 +80,13 @@
 
         game.is_draw(function(draw_status) {
           if (draw_status === true) {
-            var message = "CAT'S GAME"
+            var message = "CAT'S GAME!"
+            var message_location = $('#message')
+            message_location.text(message)
             alert(message)
             //reset all spaces back to visually blank
             spaces.text("")
+            message_location.text("")
           }
         })
 
