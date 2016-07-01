@@ -14,7 +14,7 @@ TicTacToe.prototype = {
   },
 
   //current player claims the given space
-  take_space: function (space) {
+  take_space: function (space, callback) {
     //the space has to be untaken in order to claim it
     if (this.untaken.includes(space)) {
       var index = this.untaken.indexOf(space)
@@ -23,12 +23,15 @@ TicTacToe.prototype = {
       if (this._turn === 'x') {
         this.taken_by_x.push(taken_space)
         console.log("taken by x: " + this.taken_by_x)
+        callback('x')
       } else {
         this.taken_by_o.push(taken_space)
         console.log("taken by o: " + this.taken_by_o)
+        callback('o')
       }
     } else {
       alert("That space is already taken!")
+      callback("")
       //alert is annoying, do something else later
     }
   },

@@ -9,22 +9,21 @@
   <body>
     <h1>Tic Tac Toe</h1>
     <div id="tic-tac-toe">
-
       <table>
         <tr>
-          <td data-position="a1">a1</td>
-          <td data-position="b1">b1</td>
-          <td data-position="c1">c1</td>
+          <td data-position="a1"></td>
+          <td data-position="b1"></td>
+          <td data-position="c1"></td>
         </tr>
         <tr>
-          <td data-position="a2">a2</td>
-          <td data-position="b2">b2</td>
-          <td data-position="c2">c2</td>
+          <td data-position="a2"></td>
+          <td data-position="b2"></td>
+          <td data-position="c2"></td>
         </tr>
         <tr>
-          <td data-position="a3">a3</td>
-          <td data-position="b3">b3</td>
-          <td data-position="c3">c3</td>
+          <td data-position="a3"></td>
+          <td data-position="b3"></td>
+          <td data-position="c3"></td>
         </tr>
       </table>
 
@@ -41,9 +40,14 @@
 
       //when you click on a space, its position will be passed to JS script
       spaces.on('click', function () {
+        //the value in the space itself
         var space = $(this).attr('data-position')
 
-        game.take_space(space)
+        // so I can access this context inside the callback below
+        var which_square = $(this)
+        game.take_space(space, function(current_player) {
+          which_square.text(current_player.toUpperCase())
+        })
 
         game.is_win(function(win_status, winning_player) {
           if (win_status === true) {
