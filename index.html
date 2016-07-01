@@ -7,20 +7,19 @@
   </head>
 
   <body>
-    <h1>Tic Tac Toe</h1>
     <div id="tic-tac-toe">
       <table>
-        <tr>
+        <tr class="first-row">
           <td data-position="a1"></td>
           <td data-position="b1"></td>
           <td data-position="c1"></td>
         </tr>
-        <tr>
+        <tr class="second-row">
           <td data-position="a2"></td>
           <td data-position="b2"></td>
           <td data-position="c2"></td>
         </tr>
-        <tr>
+        <tr class="third-row">
           <td data-position="a3"></td>
           <td data-position="b3"></td>
           <td data-position="c3"></td>
@@ -67,8 +66,10 @@
 
         game.is_draw(function(draw_status) {
           if (draw_status === true) {
-            var message = "CAT'S GAME!"
+            var message = "CAT'S GAME!!!"
             console.log(message)
+            //reset all spaces back to visually blank
+            spaces.text("")
           }
         })
 
