@@ -27,6 +27,12 @@ td:hover {
   color: black;
 }
 
+td.player-change:hover {
+  background-color: #FFFFE0;
+  transition: background-color 0.15s ease;
+  color: black;
+}
+
 .win {
   animation: 0.75s ease 0s infinite flash;
 }

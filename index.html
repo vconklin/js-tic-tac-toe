@@ -47,7 +47,7 @@
         //the value in the space itself
         var space = $(this).attr('data-position')
 
-        // so I can access this context inside the callback below
+        // so I can access this context inside callbacks
         var which_square = $(this)
         game.take_space(space, function(current_player) {
           // changes the symbol on the square, but only if the space wasn't already selected by someone else
@@ -85,6 +85,8 @@
           }
         })
 
+        // changes the hover state color to signify it's a different player's turn
+        spaces.toggleClass('player-change');
       })
 
     })
