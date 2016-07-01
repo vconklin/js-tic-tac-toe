@@ -57,6 +57,9 @@
           if (win_status === true) {
             var message = winning_player.toUpperCase() + " WINS!!!"
             console.log(message)
+            //reset all spaces back to visually blank
+            spaces.text("")
+
           } else {
             game.next_turn()
           }
@@ -64,7 +67,7 @@
 
         game.is_draw(function(draw_status) {
           if (draw_status === true) {
-            var message = "DRAWWWWWW"
+            var message = "CAT'S GAME!"
             console.log(message)
           }
         })
