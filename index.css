@@ -5,30 +5,67 @@ html {
 
 table {
   margin: 0 auto;
-  background-color: white;
 }
 
 td {
   height: 10vh;
   width: 10vh;
+  margin: 5rem;
   padding: 3rem;
   background-color: #6fc1f1;
+  border-collapse: collapse,
   text-align: center;
-  /*border: 5px solid white;*/
+  color: white;
 }
 
-/*[data-position='a1'] {
-  border-right: 5px solid white;
-  border-bottom: 5px solid white;
+/** to make that tic-tac-toe grid look **/
+[data-position='a1'] {
+  border-right: 10px solid white;
+  border-bottom: 10px solid white;
 }
 
 [data-position='b1'] {
-  border-right: 5px solid white;
-  border-bottom: 5px solid white;
-  border-left: 5px solid white;
+  border-right: 10px solid white;
+  border-bottom: 10px solid white;
+  border-left: 10px solid white;
 }
 
 [data-position='c1'] {
-  border-bottom: 5px solid white;
-  border-left: 5px solid white;
-}*/
+  border-bottom: 10px solid white;
+  border-left: 10px solid white;
+}
+
+[data-position='a2'] {
+  border-top: 10px solid white;
+  border-right: 10px solid white;
+  border-bottom: 10px solid white;
+}
+
+[data-position='b2'] {
+  border-top: 10px solid white;
+  border-right: 10px solid white;
+  border-bottom: 10px solid white;
+  border-left: 10px solid white;
+}
+
+[data-position='c2'] {
+  border-top: 10px solid white;
+  border-bottom: 10px solid white;
+  border-left: 10px solid white;
+}
+
+[data-position='a3'] {
+  border-top: 10px solid white;
+  border-right: 10px solid white;
+}
+
+[data-position='b3'] {
+  border-top: 10px solid white;
+  border-right: 10px solid white;
+  border-left: 10px solid white;
+}
+
+[data-position='c3'] {
+  border-top: 10px solid white;
+  border-left: 10px solid white;
+}
