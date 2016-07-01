@@ -9,8 +9,11 @@ table {
 }
 
 td {
+  height: 10vh;
+  width: 10vh;
   padding: 3rem;
   background-color: #6fc1f1;
+  text-align: center;
   /*border: 5px solid white;*/
 }
 
