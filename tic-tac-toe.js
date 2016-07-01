@@ -51,6 +51,10 @@ TicTacToe.prototype = {
     //win conditions:
     if (this.isCompleteRow(taken_by_player) || this.isCompleteColumn(taken_by_player) || this.isCompleteDiagonal(taken_by_player)) {
       callback(true, this._turn)
+      this._turn = 'x'
+      this.taken_by_x = []
+      this.taken_by_o = []
+      this.untaken = ['a1', 'b1', 'c1', 'a2', 'b2', 'c2', 'a3', 'b3', 'c3']
     } else {
       callback(false, this._turn)
     }
