@@ -4,8 +4,17 @@ html {
   background-color: #6fc1f1;
 }
 
+#message {
+  display: inline-block;
+  height: 3.5rem;
+  width: 100%;
+  text-align: center;
+  font-size: 2.5rem;
+  color: white;
+}
+
 table {
-  margin: 15vh auto;
+  margin: 5vh auto;
   border-collapse: collapse;
   background-color: white;
 }

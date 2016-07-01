@@ -32,7 +32,6 @@ TicTacToe.prototype = {
     } else {
       alert("That space is already taken!")
       callback(undefined)
-      //alert is annoying, do something else later
     }
   },
 

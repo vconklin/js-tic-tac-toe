@@ -8,6 +8,7 @@
   </head>
 
   <body>
+    <div id="message"></div>
     <div id="tic-tac-toe">
       <table>
         <tr class="first-row">
@@ -37,10 +38,6 @@
       //creates and begins game
       var game = new TicTacToe();
       var spaces = $('td')
-      //for flashing the symbols of the winner at the end
-      // function flash(symbols) {
-      //   symbols.toggleClass('win')
-      // }
 
       //when you click on a space, its position will be passed to JS script
       spaces.on('click', function () {
@@ -61,16 +58,21 @@
           if (win_status === true) {
             //probably should just make all instances of the string 'x' uppercase to begin with. do this if there's time.
             var message = winning_player.toUpperCase() + " WINS!"
+            var message_location = $('#message')
+            // console.log(message_location)
 
             //winning player's symbols flash triumphantly
             var winner_symbols = $('td:contains(' + winning_player.toUpperCase() + ')')
             winner_symbols.toggleClass('win')
+
+            message_location.text(message)
+            //alert is annoying, do something else later
             alert(message)
             winner_symbols.toggleClass('win')
 
             //reset all spaces back to visually blank
             spaces.text("")
-
+            message_location.text("")
           } else {
             game.next_turn()
           }
