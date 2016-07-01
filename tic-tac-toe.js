@@ -50,7 +50,6 @@ TicTacToe.prototype = {
 
     //win conditions:
     if (this.isCompleteRow(taken_by_player) || this.isCompleteColumn(taken_by_player) || this.isCompleteDiagonal(taken_by_player)) {
-    // if (this.isCompleteRow() || this.isCompleteColumn()) {
       callback(true, this._turn)
     } else {
       callback(false, this._turn)
@@ -115,9 +114,13 @@ TicTacToe.prototype = {
     }
   },
 
-  //win condition: a1, b2, c3...etc.
-  isCompleteDiagonal: function() {
-    return false
+  //win condition: a1, b2, c3 or c1, b2, a3
+  isCompleteDiagonal: function(taken_by_player) {
+    if (taken_by_player.includes('a1') && taken_by_player.includes('b2') && taken_by_player.includes('c3')) {
+      return true
+    } else if (taken_by_player.includes('c1') && taken_by_player.includes('b2') && taken_by_player.includes('a3')) {
+      return true
+    }
   }
 
 }
