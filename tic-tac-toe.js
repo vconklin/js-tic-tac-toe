@@ -31,6 +31,12 @@ TicTacToe.prototype = {
       }
     } else {
       alert("That space is already taken!")
+      // gets around the fact that turn always changes; it should not change in this case
+      if (this._turn === 'x') {
+        this._turn = 'o'
+      } else {
+        this._turn = 'x'
+      }
       callback(undefined)
     }
   },

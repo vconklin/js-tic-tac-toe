@@ -28,7 +28,6 @@
         </tr>
       </table>
 
-
     </div>
   </body>
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
@@ -49,7 +48,6 @@
         game.take_space(space, function(current_player) {
           // changes the symbol on the square, but only if the space wasn't already selected by someone else
           if (current_player !== undefined) {
-            console.log(current_player)
             which_square.text(current_player.toUpperCase())
           }
         })
@@ -66,13 +64,15 @@
             winner_symbols.toggleClass('win')
 
             message_location.text(message)
-            //alert is annoying, do something else later
-            alert("Replay?")
-            winner_symbols.toggleClass('win')
 
+            //alert message is horrendously ugly; change this later
+            alert("Play again?")
+
+            winner_symbols.toggleClass('win')
             //reset all spaces back to visually blank
             spaces.text("")
             message_location.text("")
+
           } else {
             game.next_turn()
           }
